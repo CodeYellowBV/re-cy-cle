@@ -860,7 +860,8 @@ let NumberInput = (_temp2$6 = _class$8 = class NumberInput extends PureComponent
             autoFocus: this.props.autoFocus,
             hasError: this.props.hasError || this.context.formFieldHasError,
             guide: false,
-            mask: this.getMask(this.props)
+            mask: this.getMask(this.props),
+            className: this.props.className
         });
     }
 }, _class$8.propTypes = {
@@ -883,7 +884,8 @@ let NumberInput = (_temp2$6 = _class$8 = class NumberInput extends PureComponent
     allowDecimal: PropTypes.bool,
     allowNegative: PropTypes.bool,
     decimalSymbol: PropTypes.string,
-    decimalLimit: PropTypes.number
+    decimalLimit: PropTypes.number,
+    className: PropTypes.string
 }, _class$8.defaultProps = {
     placeholder: '',
     value: '',
