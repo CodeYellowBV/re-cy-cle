@@ -31,6 +31,7 @@ export default class NumberInput extends PureComponent {
         allowNegative: PropTypes.bool,
         decimalSymbol: PropTypes.string,
         decimalLimit: PropTypes.number,
+        className: PropTypes.string,
     };
 
     static defaultProps = {
@@ -110,6 +111,7 @@ export default class NumberInput extends PureComponent {
                 hasError={this.props.hasError || this.context.formFieldHasError}
                 guide={false}
                 mask={this.getMask(this.props)}
+                className={this.props.className}
             />
         );
     }
