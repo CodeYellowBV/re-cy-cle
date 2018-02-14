@@ -565,15 +565,16 @@ let RadioButtons = (_temp2$2 = _class$4 = class RadioButtons extends React.PureC
                     name: this.props.name,
                     checked: item.value === this.props.value,
                     onChange: handleChange,
-                    disabled: this.props.disabled,
+                    disabled: this.props.disabled || item.disabled,
                     vertical: this.props.vertical
                 }),
                 React__default.createElement(
                     StyledLabel$1,
                     {
                         htmlFor: id,
-                        disabled: this.props.disabled,
-                        vertical: this.props.vertical
+                        disabled: this.props.disabled || item.disabled,
+                        vertical: this.props.vertical,
+                        title: item.title
                     },
                     item.label
                 )
