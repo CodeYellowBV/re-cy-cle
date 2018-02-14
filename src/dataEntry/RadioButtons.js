@@ -134,12 +134,12 @@ export default class RadioButtons extends PureComponent {
                     name={this.props.name}
                     checked={item.value === this.props.value}
                     onChange={handleChange}
-                    disabled={this.props.disabled}
+                    disabled={this.props.disabled || item.disabled}
                     vertical={this.props.vertical}
                 />
                 <StyledLabel
                     htmlFor={id}
-                    disabled={this.props.disabled}
+                    disabled={this.props.disabled || item.disabled}
                     vertical={this.props.vertical}
                 >
                     {item.label}
