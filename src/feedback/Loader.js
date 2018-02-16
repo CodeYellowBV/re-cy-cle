@@ -8,16 +8,17 @@ const sweep = keyframes`
 `;
 
 const Loader = styled.div`
-    width: 18px;
-    height: 18px;
     animation: ${sweep} 0.7s infinite linear;
-    border-radius: 8px;
     margin: 5px;
     transition: 200ms all linear;
 
     ${props => {
+        const height = props.height ? props.height : 18;
         if (props.show) {
             return `
+                width: ${height}px;
+                height: ${height}px;
+                border-radius: ${height / 2}px;
                 box-shadow: 4px 0 0px -3px black;
                 transition-duration: 1s;
             `;
