@@ -2406,9 +2406,13 @@ const sweep = styled.keyframes(['to{transform:rotate(360deg);}']);
 
 const Loader = styled__default.div.withConfig({
     displayName: 'Loader'
-})(['width:18px;height:18px;animation:', ' 0.7s infinite linear;border-radius:8px;margin:5px;transition:200ms all linear;', ';'], sweep, props => {
+})(['animation:', ' 0.7s infinite linear;margin:5px;transition:200ms all linear;', ';'], sweep, props => {
+    const height = props.height ? props.height : 18;
     if (props.show) {
         return `
+                width: ${height}px;
+                height: ${height}px;
+                border-radius: ${height / 2}px;
                 box-shadow: 4px 0 0px -3px black;
                 transition-duration: 1s;
             `;
