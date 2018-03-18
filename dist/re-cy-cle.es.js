@@ -2687,7 +2687,14 @@ let NavItem = (_temp2$21 = _class$26 = class NavItem extends Component {
         var _temp;
 
         return _temp = super(...args), this.checkActive = (match, location) => {
-            return location.pathname.startsWith(this.props.activePath);
+            const { activePath, checkActive } = this.props;
+            const isActiveFromPath = location.pathname.startsWith(activePath);
+
+            if (checkActive) {
+                return checkActive(match, location, isActiveFromPath);
+            }
+
+            return isActiveFromPath;
         }, _temp;
     }
 
@@ -2709,7 +2716,8 @@ let NavItem = (_temp2$21 = _class$26 = class NavItem extends Component {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     to: PropTypes.string,
     onClick: PropTypes.func,
-    activePath: PropTypes.string
+    activePath: PropTypes.string,
+    checkActive: PropTypes.func
 }, _temp2$21);
 
 var NavItemExternal = StyledNavLink$1.withComponent((_ref) => {
