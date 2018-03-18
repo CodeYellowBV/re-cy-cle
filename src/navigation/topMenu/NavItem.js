@@ -55,10 +55,18 @@ export default class NavItem extends Component {
         to: PropTypes.string,
         onClick: PropTypes.func,
         activePath: PropTypes.string,
+        checkActive: PropTypes.func,
     };
 
     checkActive = (match, location) => {
-        return location.pathname.startsWith(this.props.activePath);
+        const { activePath, checkActive } = this.props;
+        const isActiveFromPath = location.pathname.startsWith(activePath);
+
+        if (checkActive) {
+            return checkActive(match, location, isActiveFromPath);
+        }
+
+        return isActiveFromPath;
     };
 
     render() {
