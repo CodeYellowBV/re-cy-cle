@@ -30,7 +30,7 @@ export default class LabelText extends PureComponent {
                 <StyledLabel htmlFor={this.props.htmlFor}>
                     {this.props.children}
                 </StyledLabel>
-                <div>{this.props.helpText}</div>
+                {this.props.helpText}
             </Container>
         );
     }
