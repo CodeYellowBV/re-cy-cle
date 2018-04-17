@@ -397,11 +397,7 @@ let LabelText = (_temp$1 = _class$3 = class LabelText extends React.PureComponen
                 { htmlFor: this.props.htmlFor },
                 this.props.children
             ),
-            React__default.createElement(
-                'div',
-                null,
-                this.props.helpText
-            )
+            this.props.helpText
         );
     }
 }, _class$3.propTypes = {
