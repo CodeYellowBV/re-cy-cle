@@ -949,6 +949,7 @@ let TimeInput = (_temp2$7 = _class$9 = class TimeInput extends React.PureCompone
             autoFocus: this.props.autoFocus,
             value: formatted,
             onChange: this.onChange,
+            onBlur: this.props.onBlur,
             mask: TIME_MASK,
             pipe: createAutoCorrectedDatePipe('HH:MM'),
             keepCharPositions: true
@@ -956,6 +957,7 @@ let TimeInput = (_temp2$7 = _class$9 = class TimeInput extends React.PureCompone
     }
 }, _class$9.propTypes = {
     onChange: PropTypes.func,
+    onBlur: PropTypes.func,
     placeholder: PropTypes.string,
     name: PropTypes.string,
     disabled: PropTypes.bool,
