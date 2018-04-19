@@ -952,7 +952,8 @@ let TimeInput = (_temp2$7 = _class$9 = class TimeInput extends React.PureCompone
             onBlur: this.props.onBlur,
             mask: TIME_MASK,
             pipe: createAutoCorrectedDatePipe('HH:MM'),
-            keepCharPositions: true
+            keepCharPositions: true,
+            className: this.props.className
         });
     }
 }, _class$9.propTypes = {
@@ -964,7 +965,8 @@ let TimeInput = (_temp2$7 = _class$9 = class TimeInput extends React.PureCompone
     hasError: PropTypes.bool,
     id: PropTypes.string,
     autoFocus: PropTypes.bool,
-    value: PropTypes.instanceOf(moment)
+    value: PropTypes.instanceOf(moment),
+    className: PropTypes.string
 }, _class$9.defaultProps = {
     placeholder: ' ',
     value: ''
