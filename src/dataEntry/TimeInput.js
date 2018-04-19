@@ -14,6 +14,7 @@ const TIME_MASK = [/\d/, /\d/, ':', /\d/, /\d/];
 export default class TimeInput extends PureComponent {
     static propTypes = {
         onChange: PropTypes.func,
+        onBlur: PropTypes.func,
         placeholder: PropTypes.string,
         name: PropTypes.string,
         disabled: PropTypes.bool,
@@ -64,6 +65,7 @@ export default class TimeInput extends PureComponent {
                 autoFocus={this.props.autoFocus}
                 value={formatted}
                 onChange={this.onChange}
+                onBlur={this.props.onBlur}
                 mask={TIME_MASK}
                 pipe={createAutoCorrectedDatePipe('HH:MM')}
                 keepCharPositions
