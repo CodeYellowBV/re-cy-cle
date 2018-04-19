@@ -22,6 +22,7 @@ export default class TimeInput extends PureComponent {
         id: PropTypes.string,
         autoFocus: PropTypes.bool,
         value: PropTypes.instanceOf(moment),
+        className: PropTypes.string,
     };
 
     static defaultProps = {
@@ -69,6 +70,7 @@ export default class TimeInput extends PureComponent {
                 mask={TIME_MASK}
                 pipe={createAutoCorrectedDatePipe('HH:MM')}
                 keepCharPositions
+                className={this.props.className}
             />
         );
     }
