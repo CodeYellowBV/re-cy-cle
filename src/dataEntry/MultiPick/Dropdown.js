@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { t } from 'i18next';
+import IconCheckBox from '../../general/icon/IconCheckBox';
+import IconCheckBoxOutlineBlank from '../../general/icon/IconCheckBoxOutlineBlank';
 
 import {
     Dropdown,
@@ -96,11 +98,13 @@ export default class MultipickDropdown extends Component {
                     ? this.renderSearch()
                     : null}
                 <DropdownActionBar>
-                    <Button onClick={this.selectAll} tone="light">
-                        {selectAllText || t('form.multiPick.selectAllButton')}
-                    </Button>
                     <Button onClick={this.selectNone} tone="light">
+                        <IconCheckBoxOutlineBlank />
                         {selectNoneText || t('form.multiPick.selectNoneButton')}
+                    </Button>
+                    <Button onClick={this.selectAll} tone="light">
+                        <IconCheckBox />
+                        {selectAllText || t('form.multiPick.selectAllButton')}
                     </Button>
                 </DropdownActionBar>
                 <DropdownList>
