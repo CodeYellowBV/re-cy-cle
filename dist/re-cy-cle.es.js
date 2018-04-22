@@ -1656,6 +1656,18 @@ let MultiSelect = (_temp2$12 = _class$14 = class MultiSelect extends PureCompone
     formFieldHasError: PropTypes.bool
 }, _temp2$12);
 
+let IconCheckBox = props => React.createElement(
+    Icon,
+    props,
+    React.createElement('path', { d: 'M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z' })
+);
+
+let IconCheckBoxOutlineBlank = props => React.createElement(
+    Icon,
+    props,
+    React.createElement('path', { d: 'M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z' })
+);
+
 const Container$1 = styled.div.withConfig({
     displayName: 'styles__Container'
 })(['width:100%;position:relative;box-sizing:border-box;']);
@@ -1747,13 +1759,15 @@ let MultipickDropdown = (_temp2$14 = _class$16 = class MultipickDropdown extends
                 null,
                 React.createElement(
                     Button,
-                    { onClick: this.selectAll, tone: 'light' },
-                    selectAllText || t('form.multiPick.selectAllButton')
+                    { onClick: this.selectNone, tone: 'light' },
+                    React.createElement(IconCheckBoxOutlineBlank, null),
+                    selectNoneText || t('form.multiPick.selectNoneButton')
                 ),
                 React.createElement(
                     Button,
-                    { onClick: this.selectNone, tone: 'light' },
-                    selectNoneText || t('form.multiPick.selectNoneButton')
+                    { onClick: this.selectAll, tone: 'light' },
+                    React.createElement(IconCheckBox, null),
+                    selectAllText || t('form.multiPick.selectAllButton')
                 )
             ),
             React.createElement(
@@ -3844,18 +3858,6 @@ let IconCheck = props => React.createElement(
     Icon,
     props,
     React.createElement('path', { d: 'M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z' })
-);
-
-let IconCheckBox = props => React.createElement(
-    Icon,
-    props,
-    React.createElement('path', { d: 'M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z' })
-);
-
-let IconCheckBoxOutlineBlank = props => React.createElement(
-    Icon,
-    props,
-    React.createElement('path', { d: 'M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z' })
 );
 
 let IconCheckCircle = props => React.createElement(

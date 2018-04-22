@@ -1665,6 +1665,18 @@ let MultiSelect = (_temp2$12 = _class$14 = class MultiSelect extends React.PureC
     formFieldHasError: PropTypes.bool
 }, _temp2$12);
 
+let IconCheckBox = props => React__default.createElement(
+    Icon,
+    props,
+    React__default.createElement('path', { d: 'M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z' })
+);
+
+let IconCheckBoxOutlineBlank = props => React__default.createElement(
+    Icon,
+    props,
+    React__default.createElement('path', { d: 'M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z' })
+);
+
 const Container$1 = styled__default.div.withConfig({
     displayName: 'styles__Container'
 })(['width:100%;position:relative;box-sizing:border-box;']);
@@ -1756,13 +1768,15 @@ let MultipickDropdown = (_temp2$14 = _class$16 = class MultipickDropdown extends
                 null,
                 React__default.createElement(
                     Button,
-                    { onClick: this.selectAll, tone: 'light' },
-                    selectAllText || i18next.t('form.multiPick.selectAllButton')
+                    { onClick: this.selectNone, tone: 'light' },
+                    React__default.createElement(IconCheckBoxOutlineBlank, null),
+                    selectNoneText || i18next.t('form.multiPick.selectNoneButton')
                 ),
                 React__default.createElement(
                     Button,
-                    { onClick: this.selectNone, tone: 'light' },
-                    selectNoneText || i18next.t('form.multiPick.selectNoneButton')
+                    { onClick: this.selectAll, tone: 'light' },
+                    React__default.createElement(IconCheckBox, null),
+                    selectAllText || i18next.t('form.multiPick.selectAllButton')
                 )
             ),
             React__default.createElement(
@@ -3853,18 +3867,6 @@ let IconCheck = props => React__default.createElement(
     Icon,
     props,
     React__default.createElement('path', { d: 'M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z' })
-);
-
-let IconCheckBox = props => React__default.createElement(
-    Icon,
-    props,
-    React__default.createElement('path', { d: 'M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z' })
-);
-
-let IconCheckBoxOutlineBlank = props => React__default.createElement(
-    Icon,
-    props,
-    React__default.createElement('path', { d: 'M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z' })
 );
 
 let IconCheckCircle = props => React__default.createElement(
