@@ -1687,7 +1687,7 @@ const Dropdown$1 = styled__default.div.withConfig({
 
 const MultiPickButton = styled__default(Button).withConfig({
     displayName: 'styles__MultiPickButton'
-})(['margin:0;']);
+})(['margin:0;width:100%;']);
 
 const DropdownItem$1 = styled__default.label.withConfig({
     displayName: 'styles__DropdownItem'
