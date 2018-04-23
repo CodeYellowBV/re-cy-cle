@@ -22,6 +22,7 @@ export const Dropdown = styled.div`
 
 export const MultiPickButton = styled(Button)`
     margin: 0;
+    width: 100%;
 `;
 
 export const DropdownItem = styled.label`
