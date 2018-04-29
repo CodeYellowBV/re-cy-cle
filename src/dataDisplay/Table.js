@@ -46,22 +46,10 @@ export const TableData = styled.td`
     padding: 8px 4px;
     font-size: 14px;
 
-    ${props =>
-        props.stretch
-            ? `
-        width: 100%;
-    `
-            : null} ${props =>
-            props.alignRight
-                ? `
-        text-align: right;
-    `
-                : null} ${props =>
-            props.noWrap
-                ? `
-        white-space: nowrap;
-    `
-                : null};
+    ${props => (props.stretch ? `width: 100%;` : null)}
+    ${props => props.alignRight ? `text-align: right;` : null}
+    ${props => props.alignCenter ? `text-align: center;` : null}
+    ${props => props.noWrap ? `white-space: nowrap;` : null}
 `;
 TableData.displayName = 'TableData';
 TableData.propTypes = {
