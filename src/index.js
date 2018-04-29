@@ -1,4 +1,5 @@
 export { default as ReCyCleTheme } from './ReCyCleTheme';
+export { Spacer } from './general/Spacer';
 export { Button, Link, ExternalLink } from './general/Button';
 export { default as Heading } from './general/typography/Heading';
 export { default as Subheading } from './general/typography/Subheading';
