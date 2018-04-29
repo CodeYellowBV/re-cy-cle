@@ -162,6 +162,10 @@ let ReCyCleTheme = (_temp2 = _class = class ReCyCleTheme extends React.Component
     theme: {}
 }, _temp2);
 
+const Spacer = styled__default.span.withConfig({
+    displayName: 'Spacer'
+})(['padding-left:20px;', ' ', ' ', ''], props => props.small ? `padding-left: 10px;` : null, props => props.large ? `padding-left: 40px;` : null, props => props.width ? `padding-left: ${props.width}` : null);
+
 const ValuePropType = PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]);
 
 const OptionsPropType = PropTypes.arrayOf(PropTypes.shape({
@@ -8653,6 +8657,7 @@ let IconZoomOutMap = props => React__default.createElement(
 );
 
 exports.ReCyCleTheme = ReCyCleTheme;
+exports.Spacer = Spacer;
 exports.Button = Button;
 exports.Link = Link$1;
 exports.ExternalLink = ExternalLink;
