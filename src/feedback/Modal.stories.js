@@ -11,7 +11,17 @@ storiesOf('Feedback / Modal', module)
         'standard',
         withInfo()(() => {
             return (
-                <Modal onClose={action('close')}>
+                <Modal onClose={action('close')} >
+                    <p>This is some modal content.</p>
+                </Modal>
+            );
+        })
+    )
+    .add(
+        'small',
+        withInfo()(() => {
+            return (
+                <Modal onClose={action('close')} small >
                     <p>This is some modal content.</p>
                 </Modal>
             );
