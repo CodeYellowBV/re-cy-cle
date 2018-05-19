@@ -28,8 +28,8 @@ const Content = styled.div`
     border-radius: 4px;
     display: flex;
     overflow: hidden;
-    height: 80vh;
-    width: 80vw;
+    height: ${props => props.small ? '40vh' : '80vh'};
+    width: ${props => props.small ? '40vw' : '80vw'};
     max-width: 800px;
     max-height: 800px;
 `;
@@ -40,6 +40,7 @@ export default class Modal extends Component {
     static propTypes = {
         children: PropTypes.node.isRequired,
         onClose: PropTypes.func.isRequired,
+        small: PropTypes.bool,
     };
 
     componentWillMount() {
@@ -60,7 +61,7 @@ export default class Modal extends Component {
         return (
             <Container>
                 <Background onClick={this.props.onClose} />
-                <Content>{this.props.children}</Content>
+                <Content small={this.props.small}>{this.props.children}</Content>
             </Container>
         );
     }

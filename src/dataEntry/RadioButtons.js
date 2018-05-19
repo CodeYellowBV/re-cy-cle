@@ -21,6 +21,7 @@ const StyledDiv = styled.div`
             border-color: ${props.theme.primaryColor};
         }
     `};
+    title: ${props => (props.title ? props.title : '')};
 `;
 
 const Option = styled.div`
@@ -109,6 +110,7 @@ export default class RadioButtons extends PureComponent {
         options: OptionsPropType,
         value: ValuePropType,
         vertical: PropTypes.bool,
+        title: PropTypes.string
     };
 
     state = {
@@ -164,6 +166,7 @@ export default class RadioButtons extends PureComponent {
                 onBlur={this.handleBlur}
                 focus={this.state.hasFocus}
                 vertical={this.props.vertical}
+                title={this.props.title}
             >
                 {this.props.options.map(this.renderItem)}
             </StyledDiv>

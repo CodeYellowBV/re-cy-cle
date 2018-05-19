@@ -62,4 +62,18 @@ storiesOf('Data Entry / RadioButtons', module)
                 />
             );
         })
+    )
+    .add(
+        'With title',
+        withInfo()(() => {
+            return (
+                <RadioButtons
+                    onChange={action('change')}
+                    name="myname"
+                    options={SOME_OPTIONS}
+                    value="zebra"
+                    title={'Title'}
+                />
+            );
+        })
     );
