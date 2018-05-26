@@ -8,35 +8,30 @@ const StyledScrollbars = styled(({ tone, ...props }) => (
     <Scrollbars {...props} />
 ))`
     flex: 1;
-    background: ${props =>
-        props.tone === 'primary'
-            ? tint(0.07, props.theme.primaryColor)
-            : props.theme.componentBackground};
+    background: ${props => props.tone === 'primary'
+        ? tint(0.07, props.theme.primaryColor)
+        : props.theme.componentBackground
+    };
 `;
 
 const Main = styled.main`
     margin: 0 auto;
     max-width: 1500px;
     padding: 25px;
-    ${props =>
-        props.blur
-            ? `
+    transition: 200ms filter ease;
+
+    ${props => props.blur && `
         filter: blur(2px) grayscale(40%);
         pointer-events: none;
         opacity: 0.6;
-    `
-            : null};
-    transition: 200ms filter ease;
+    `};
 
-    ${props =>
-        props.center
-            ? `
+    ${props => props.center && `
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-    `
-            : null};
+    `};
 `;
 
 class Content extends Component {
