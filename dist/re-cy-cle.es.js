@@ -488,11 +488,11 @@ var _temp2$2;
 
 const StyledDiv = styled.div.withConfig({
     displayName: 'RadioButtons__StyledDiv'
-})(['-webkit-touch-callout:none;user-select:none;display:flex;align-items:stretch;flex-direction:', ';flex-wrap:nowrap;border:1px solid transparent;border-radius:4px;', ';'], props => props.vertical ? 'column' : 'row', props => props.focus && `
+})(['-webkit-touch-callout:none;user-select:none;display:flex;align-items:stretch;flex-direction:', ';flex-wrap:nowrap;border:1px solid transparent;border-radius:4px;', ';title:', ';'], props => props.vertical ? 'column' : 'row', props => props.focus && `
         label {
             border-color: ${props.theme.primaryColor};
         }
-    `);
+    `, props => props.title ? props.title : '');
 
 const Option = styled.div.withConfig({
     displayName: 'RadioButtons__Option'
@@ -584,7 +584,8 @@ let RadioButtons = (_temp2$2 = _class$4 = class RadioButtons extends PureCompone
                 onFocus: this.handleFocus,
                 onBlur: this.handleBlur,
                 focus: this.state.hasFocus,
-                vertical: this.props.vertical
+                vertical: this.props.vertical,
+                title: this.props.title
             },
             this.props.options.map(this.renderItem)
         );
@@ -595,7 +596,8 @@ let RadioButtons = (_temp2$2 = _class$4 = class RadioButtons extends PureCompone
     disabled: PropTypes.bool,
     options: OptionsPropType,
     value: ValuePropType,
-    vertical: PropTypes.bool
+    vertical: PropTypes.bool,
+    title: PropTypes.string
 }, _temp2$2);
 
 var _class$5;
@@ -2302,6 +2304,9 @@ var Body = styled.div.withConfig({
     displayName: 'Body'
 })(['flex:1;display:flex;flex-direction:column;']);
 
+var _class$21;
+var _temp$3;
+
 const StyledScrollbars = styled((_ref) => {
     let { tone } = _ref,
         props = objectWithoutProperties(_ref, ['tone']);
@@ -2312,33 +2317,40 @@ const StyledScrollbars = styled((_ref) => {
 
 const Main = styled.main.withConfig({
     displayName: 'Content__Main'
-})(['margin:0 auto;max-width:1500px;padding:25px;', ';transition:200ms filter ease;', ';'], props => props.blur ? `
+})(['margin:0 auto;max-width:1500px;padding:25px;transition:200ms filter ease;', ';', ';'], props => props.blur && `
         filter: blur(2px) grayscale(40%);
         pointer-events: none;
         opacity: 0.6;
-    ` : null, props => props.center ? `
+    `, props => props.center && `
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-    ` : null);
+    `);
 
-const Content = props => React.createElement(
-    StyledScrollbars,
-    { tone: props.tone },
-    React.createElement(
-        Main,
-        { center: props.center, blur: props.blur },
-        props.children
-    )
-);
+let Content = (_temp$3 = _class$21 = class Content extends Component {
 
-Content.propTypes = {
+    render() {
+        const _props = this.props,
+              { center, blur, children } = _props,
+              scrollbarProps = objectWithoutProperties(_props, ['center', 'blur', 'children']);
+
+        return React.createElement(
+            StyledScrollbars,
+            scrollbarProps,
+            React.createElement(
+                Main,
+                { center: center, blur: blur },
+                children
+            )
+        );
+    }
+}, _class$21.propTypes = {
     children: PropTypes.node,
     center: PropTypes.bool,
     blur: PropTypes.bool,
     tone: PropTypes.oneOf(['primary'])
-};
+}, _temp$3);
 
 var ContentContainer = styled.div.withConfig({
     displayName: 'ContentContainer'
@@ -2428,12 +2440,12 @@ Loader.propTypes = {
     show: PropTypes.bool
 };
 
-var _class$22;
+var _class$23;
 var _temp2$19;
 
 const TRANSITION_TIME = 500;
 
-let NotificationItem = (_temp2$19 = _class$22 = class NotificationItem extends Component {
+let NotificationItem = (_temp2$19 = _class$23 = class NotificationItem extends Component {
     constructor(...args) {
         var _temp;
 
@@ -2486,14 +2498,14 @@ let NotificationItem = (_temp2$19 = _class$22 = class NotificationItem extends C
             )
         );
     }
-}, _class$22.propTypes = {
+}, _class$23.propTypes = {
     message: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
     onClick: PropTypes.func,
     dismissAfter: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
     dismissible: PropTypes.bool,
     type: PropTypes.oneOf(['info', 'error'])
-}, _class$22.defaultProps = {
+}, _class$23.defaultProps = {
     dismissAfter: 3100,
     type: 'info'
 }, _temp2$19);
@@ -2519,10 +2531,10 @@ const StyledItem = styled.div.withConfig({
         opacity: 0;
     ` : '', getBackgroundColor, props => props.onClick ? 'pointer' : 'default');
 
-var _class$21;
+var _class$22;
 var _temp2$18;
 
-let NotificationStack = (_temp2$18 = _class$21 = class NotificationStack extends Component {
+let NotificationStack = (_temp2$18 = _class$22 = class NotificationStack extends Component {
     constructor(...args) {
         var _temp;
 
@@ -2547,7 +2559,7 @@ let NotificationStack = (_temp2$18 = _class$21 = class NotificationStack extends
             this.props.notifications.map(this.renderNotification)
         );
     }
-}, _class$21.propTypes = {
+}, _class$22.propTypes = {
     notifications: PropTypes.array.isRequired,
     onDismiss: PropTypes.func.isRequired
 }, _temp2$18);
@@ -2555,7 +2567,7 @@ const StackWrapper = styled.div.withConfig({
     displayName: 'Stack__StackWrapper'
 })(['position:fixed;top:20px;z-index:', ';width:100%;display:flex;flex-flow:column wrap;align-items:center;pointer-events:none;'], props => props.theme.zIndexNotificationStack);
 
-var _class$23;
+var _class$24;
 var _temp2$20;
 
 const Container$2 = styled.div.withConfig({
@@ -2568,11 +2580,11 @@ const Background = styled.div.withConfig({
 
 const Content$3 = styled.div.withConfig({
     displayName: 'Modal__Content'
-})(['position:relative;background:', ';border-radius:4px;display:flex;overflow:hidden;height:80vh;width:80vw;max-width:800px;max-height:800px;'], props => props.theme.componentBackground);
+})(['position:relative;background:', ';border-radius:4px;display:flex;overflow:hidden;height:', ';width:', ';max-width:800px;max-height:800px;'], props => props.theme.componentBackground, props => props.small ? '40vh' : '80vh', props => props.small ? '40vw' : '80vw');
 
 const ESCAPE_KEY = 27;
 
-let Modal = (_temp2$20 = _class$23 = class Modal extends Component {
+let Modal = (_temp2$20 = _class$24 = class Modal extends Component {
     constructor(...args) {
         var _temp;
 
@@ -2598,18 +2610,19 @@ let Modal = (_temp2$20 = _class$23 = class Modal extends Component {
             React.createElement(Background, { onClick: this.props.onClose }),
             React.createElement(
                 Content$3,
-                null,
+                { small: this.props.small },
                 this.props.children
             )
         );
     }
-}, _class$23.propTypes = {
+}, _class$24.propTypes = {
     children: PropTypes.node.isRequired,
-    onClose: PropTypes.func.isRequired
+    onClose: PropTypes.func.isRequired,
+    small: PropTypes.bool
 }, _temp2$20);
 
-var _class$24;
-var _temp$3;
+var _class$25;
+var _temp$4;
 
 const Bubble = styled.sup.withConfig({
     displayName: 'Badge__Bubble'
@@ -2619,7 +2632,7 @@ const Wrapper = styled.div.withConfig({
     displayName: 'Badge__Wrapper'
 })(['position:relative;display:inline-block;']);
 
-let Badge = (_temp$3 = _class$24 = class Badge extends Component {
+let Badge = (_temp$4 = _class$25 = class Badge extends Component {
 
     render() {
         const { count, children, className } = this.props;
@@ -2634,20 +2647,20 @@ let Badge = (_temp$3 = _class$24 = class Badge extends Component {
             )
         );
     }
-}, _class$24.propTypes = {
+}, _class$25.propTypes = {
     count: PropTypes.number,
     children: PropTypes.node,
     className: PropTypes.string
-}, _temp$3);
+}, _temp$4);
 
-var _class$25;
-var _temp$4;
+var _class$26;
+var _temp$5;
 
 const Menu = styled.header.withConfig({
     displayName: 'TopMenu__Menu'
 })(['display:flex;align-items:stretch;flex-direction:column;']);
 
-let TopMenu = (_temp$4 = _class$25 = class TopMenu extends Component {
+let TopMenu = (_temp$5 = _class$26 = class TopMenu extends Component {
 
     render() {
         return React.createElement(
@@ -2656,9 +2669,9 @@ let TopMenu = (_temp$4 = _class$25 = class TopMenu extends Component {
             this.props.children
         );
     }
-}, _class$25.propTypes = {
+}, _class$26.propTypes = {
     children: PropTypes.node.isRequired
-}, _temp$4);
+}, _temp$5);
 
 const StyledNavLink = styled(NavLink).withConfig({
     displayName: 'Logo__StyledNavLink'
@@ -2687,14 +2700,14 @@ var MenuRow = styled.div.withConfig({
         }
     `);
 
-var _class$26;
+var _class$27;
 var _temp2$21;
 
 const StyledNavLink$1 = styled(NavLink).withConfig({
     displayName: 'NavItem__StyledNavLink'
 })(['display:flex;align-items:center;padding:0 10px;margin:0 10px;text-decoration:none;color:inherit;cursor:pointer;position:relative;&.active{&:before,&:after{border-width:8px;}}&:after{position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);width:0;height:0;border:0 solid transparent;border-bottom-color:#fff;border-top:0;transition:175ms all ease;}&:before{position:absolute;left:50%;bottom:0;transform:translateX(-50%);content:\'\';width:0;height:0;border:0 solid transparent;border-bottom-color:', ';border-top:0;transition:175ms all ease;}'], props => props.theme.primaryColor);
 
-let NavItem = (_temp2$21 = _class$26 = class NavItem extends Component {
+let NavItem = (_temp2$21 = _class$27 = class NavItem extends Component {
     constructor(...args) {
         var _temp;
 
@@ -2724,7 +2737,7 @@ let NavItem = (_temp2$21 = _class$26 = class NavItem extends Component {
             this.props.title
         );
     }
-}, _class$26.propTypes = {
+}, _class$27.propTypes = {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     to: PropTypes.string,
     onClick: PropTypes.func,
@@ -2746,14 +2759,14 @@ var NavMenu = styled.nav.withConfig({
     displayName: 'NavMenu'
 })(['flex:1;display:flex;align-items:stretch;']);
 
-var _class$27;
+var _class$28;
 var _temp2$22;
 
 const RelativeWrapper = styled.div.withConfig({
     displayName: 'Dropdown__RelativeWrapper'
 })(['position:relative;']);
 
-let MyDropdown = (_temp2$22 = _class$27 = class MyDropdown extends Component {
+let MyDropdown = (_temp2$22 = _class$28 = class MyDropdown extends Component {
     constructor(...args) {
         var _temp;
 
@@ -2785,7 +2798,7 @@ let MyDropdown = (_temp2$22 = _class$27 = class MyDropdown extends Component {
             (this.state.opened || this.props.opened) && this.props.overlay
         );
     }
-}, _class$27.propTypes = {
+}, _class$28.propTypes = {
     overlay: PropTypes.element.isRequired,
     children: PropTypes.node.isRequired,
     opened: PropTypes.bool,
