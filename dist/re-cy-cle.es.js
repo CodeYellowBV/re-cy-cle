@@ -1271,8 +1271,14 @@ let TypeAhead = (_temp2$9 = _class$11 = class TypeAhead extends PureComponent {
         return _temp = super(...args), this.handleSelect = option => {
             this.props.onSelect(option.value);
         }, this.handleStateChange = changes => {
+            const { onChange, onClose } = this.props;
+
             if (changes.hasOwnProperty('inputValue')) {
-                this.props.onChange(this.props.name, changes.inputValue);
+                onChange(this.props.name, changes.inputValue);
+            }
+
+            if (onClose && changes.hasOwnProperty('isOpen') && !changes.isOpen) {
+                onClose(this.props.name, changes.inputValue);
             }
         }, this.renderDropdown = ({
             isOpen,
@@ -1354,6 +1360,7 @@ let TypeAhead = (_temp2$9 = _class$11 = class TypeAhead extends PureComponent {
 }, _class$11.propTypes = {
     onChange: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
     name: PropTypes.string,
     value: ValuePropType,
     options: OptionsPropType,
