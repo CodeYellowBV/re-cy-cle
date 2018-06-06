@@ -35,6 +35,7 @@ storiesOf('Data Entry / TypeAhead', module)
                     <TypeAhead
                         onChange={action('change')}
                         onSelect={action('select')}
+                        onClose={action('close')}
                         name="myname"
                         options={SOME_OPTIONS}
                     />
@@ -50,6 +51,7 @@ storiesOf('Data Entry / TypeAhead', module)
                 <TypeAhead
                     onChange={action('change')}
                     onSelect={action('select')}
+                    onClose={action('close')}
                     name="myname"
                     options={SOME_OPTIONS}
                     hasError
@@ -76,6 +78,7 @@ storiesOf('Data Entry / TypeAhead', module)
                         <TypeAhead
                             onChange={this.handleChange}
                             onSelect={action('select')}
+                            onClose={action('close')}
                             name="myname"
                             options={SOME_OPTIONS}
                             value={this.state.value}
@@ -96,6 +99,7 @@ storiesOf('Data Entry / TypeAhead', module)
                 <TypeAhead
                     onChange={action('change')}
                     onSelect={action('select')}
+                    onClose={action('close')}
                     name="myname"
                     options={SOME_OPTIONS}
                     disabled
