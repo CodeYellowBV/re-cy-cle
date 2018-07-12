@@ -2216,12 +2216,13 @@ let Accordion = withTheme(_class$20 = (_temp2$17 = _class2$2 = class Accordion e
             children,
             action,
             title,
-            contentBackground
+            contentBackground,
+            className
         } = this.props;
         const IconToggle = opened ? IconKeyboardArrowUp : IconKeyboardArrowDown;
         return React.createElement(
             StyledContainer,
-            null,
+            { className: className },
             React.createElement(
                 StyledTitleContainer,
                 null,
@@ -2255,7 +2256,8 @@ let Accordion = withTheme(_class$20 = (_temp2$17 = _class2$2 = class Accordion e
     onChange: PropTypes.func.isRequired,
     action: PropTypes.node,
     theme: PropTypes.object.isRequired,
-    contentBackground: PropTypes.string
+    contentBackground: PropTypes.string,
+    className: PropTypes.string
 }, _temp2$17)) || _class$20;
 
 const Table = styled.table.withConfig({
