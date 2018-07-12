@@ -46,6 +46,7 @@ export default class Accordion extends Component {
         action: PropTypes.node,
         theme: PropTypes.object.isRequired,
         contentBackground: PropTypes.string,
+        className: PropTypes.string,
     };
 
     handleClick = () => {
@@ -59,10 +60,11 @@ export default class Accordion extends Component {
             action,
             title,
             contentBackground,
+            className,
         } = this.props;
         const IconToggle = opened ? KeyboardArrowUp : KeyboardArrowDown;
         return (
-            <StyledContainer>
+            <StyledContainer className={className}>
                 <StyledTitleContainer>
                     <Button icon onClick={this.handleClick}>
                         <IconToggle
