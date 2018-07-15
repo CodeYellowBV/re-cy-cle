@@ -4,11 +4,11 @@ import styled from 'styled-components';
 
 const StyledLabel = styled.label`
     width: 100%;
-    display: block;
     margin-bottom: 3px;
     cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
     display: flex;
     word-break: break-word;
+    align-items: center;
 `;
 
 const StyledInput = styled.input`
