@@ -655,7 +655,7 @@ var _temp2$4;
 
 const StyledLabel$3 = styled.label.withConfig({
     displayName: 'Checkbox__StyledLabel'
-})(['width:100%;display:block;margin-bottom:3px;cursor:', ';display:flex;word-break:break-word;'], props => props.disabled ? 'not-allowed' : 'pointer');
+})(['width:100%;margin-bottom:3px;cursor:', ';display:flex;word-break:break-word;align-items:center;'], props => props.disabled ? 'not-allowed' : 'pointer');
 
 const StyledInput$2 = styled.input.withConfig({
     displayName: 'Checkbox__StyledInput'
