@@ -1981,7 +1981,7 @@ let SingleDatePicker = styled.withTheme(_class2 = (_temp4 = _class3 = class Sing
     }
 
     render() {
-        const { value } = this.props;
+        const { name, value } = this.props;
         const dateFormat = this.props.theme.dateFormat;
         const formattedValue = value ? value.format(dateFormat) : '';
         // TODO: currently you cannot use most props you might need from the react-day-picker component
@@ -1996,6 +1996,7 @@ let SingleDatePicker = styled.withTheme(_class2 = (_temp4 = _class3 = class Sing
             React__default.createElement(DayPickerInput, {
                 component: MaskedDateInput,
                 onDayChange: this.handleChange,
+                name: name,
                 value: formattedValue,
                 disabled: this.props.disabled,
                 hasError: this.props.hasError || this.context.formFieldHasError,
