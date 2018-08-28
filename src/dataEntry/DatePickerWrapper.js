@@ -45,22 +45,6 @@ const DatePickerWrapper = styled.div`
         cursor: pointer;
     }
 
-    .DayPicker-NavButton--prev {
-        top: -0.2rem;
-        left: 1rem;
-        background-image: url('data:image/svg+xml;utf8,<svg fill="${props =>
-            props.theme
-                .textColor}" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-    }
-
-    .DayPicker-NavButton--next {
-        top: -0.2rem;
-        right: 1rem;
-        background-image: url('data:image/svg+xml;utf8,<svg fill="${props =>
-            props.theme
-                .textColor}" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-    }
-
     .DayPicker-NavButton--interactionDisabled {
         display: none;
     }
@@ -197,6 +181,22 @@ const DatePickerWrapper = styled.div`
     .Selectable .DayPicker-Day--end {
         border-top-right-radius: 50% !important;
         border-bottom-right-radius: 50% !important;
+    }
+
+    .DayPicker-NavButton--prev {
+        top: -0.2rem;
+        left: 1rem;
+    }
+
+    .DayPicker-NavButton--next {
+        top: -0.2rem;
+        right: 1rem;
+        transform: rotate(180deg);
+    }
+
+    /* Ensure this is last, because of https://github.com/thysultan/stylis.js/pull/118 */
+    .DayPicker-NavButton--prev, .DayPicker-NavButton--next {
+        background-image: url('data:image/svg+xml;utf8,<svg fill="${props => props.theme.textColor}" height="24" viewBox="0 0 24 24" width="24" xmlns="${() => 'http://www.w3.org/2000/svg'}"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
     }
 `;
 
