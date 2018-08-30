@@ -97,14 +97,14 @@ export default class SingleDatePicker extends PureComponent {
     };
 
     render() {
-        const { name, value } = this.props;
-        const dateFormat = this.props.theme.dateFormat;
+        const { name, value, theme, disabledDays, showWeekNumbers, disabled, hasError, placeholder, ...rest } = this.props;
+        const dateFormat = theme.dateFormat;
         const formattedValue = value ? value.format(dateFormat) : '';
         // TODO: currently you cannot use most props you might need from the react-day-picker component
         const dayPickerProps = {
-            disabledDays: this.props.disabledDays,
+            disabledDays: disabledDays,
             firstDayOfWeek: 1,
-            showWeekNumbers: this.props.showWeekNumbers,
+            showWeekNumbers: showWeekNumbers,
         };
         return (
             <DatePickerWrapper>
@@ -113,13 +113,12 @@ export default class SingleDatePicker extends PureComponent {
                     onDayChange={this.handleChange}
                     name={name}
                     value={formattedValue}
-                    disabled={this.props.disabled}
-                    hasError={
-                        this.props.hasError || this.context.formFieldHasError
-                    }
-                    placeholder={this.props.placeholder}
+                    disabled={disabled}
+                    hasError={hasError || this.context.formFieldHasError}
+                    placeholder={placeholder}
                     format={dateFormat}
                     dayPickerProps={dayPickerProps}
+                    {...rest}
                 />
             </DatePickerWrapper>
         );
