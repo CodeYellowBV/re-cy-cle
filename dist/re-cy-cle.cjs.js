@@ -1981,29 +1981,31 @@ let SingleDatePicker = styled.withTheme(_class2 = (_temp4 = _class3 = class Sing
     }
 
     render() {
-        const { name, value } = this.props;
-        const dateFormat = this.props.theme.dateFormat;
+        const _props = this.props,
+              { name, value, theme, disabledDays, showWeekNumbers, disabled, hasError, placeholder } = _props,
+              rest = objectWithoutProperties(_props, ['name', 'value', 'theme', 'disabledDays', 'showWeekNumbers', 'disabled', 'hasError', 'placeholder']);
+        const dateFormat = theme.dateFormat;
         const formattedValue = value ? value.format(dateFormat) : '';
         // TODO: currently you cannot use most props you might need from the react-day-picker component
         const dayPickerProps = {
-            disabledDays: this.props.disabledDays,
+            disabledDays: disabledDays,
             firstDayOfWeek: 1,
-            showWeekNumbers: this.props.showWeekNumbers
+            showWeekNumbers: showWeekNumbers
         };
         return React__default.createElement(
             DatePickerWrapper,
             null,
-            React__default.createElement(DayPickerInput, {
+            React__default.createElement(DayPickerInput, Object.assign({
                 component: MaskedDateInput,
                 onDayChange: this.handleChange,
                 name: name,
                 value: formattedValue,
-                disabled: this.props.disabled,
-                hasError: this.props.hasError || this.context.formFieldHasError,
-                placeholder: this.props.placeholder,
+                disabled: disabled,
+                hasError: hasError || this.context.formFieldHasError,
+                placeholder: placeholder,
                 format: dateFormat,
                 dayPickerProps: dayPickerProps
-            })
+            }, rest))
         );
     }
 }, _class3.propTypes = {
