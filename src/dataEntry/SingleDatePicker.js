@@ -97,7 +97,7 @@ export default class SingleDatePicker extends PureComponent {
     };
 
     render() {
-        const { name, value, theme, disabledDays, showWeekNumbers, disabled, hasError, placeholder, ...rest } = this.props;
+        const { name, value, theme, disabledDays, showWeekNumbers, disabled, hasError, placeholder, onChange, ...rest } = this.props;
         const dateFormat = theme.dateFormat;
         const formattedValue = value ? value.format(dateFormat) : '';
         // TODO: currently you cannot use most props you might need from the react-day-picker component
