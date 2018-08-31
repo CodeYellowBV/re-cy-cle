@@ -1982,8 +1982,8 @@ let SingleDatePicker = styled.withTheme(_class2 = (_temp4 = _class3 = class Sing
 
     render() {
         const _props = this.props,
-              { name, value, theme, disabledDays, showWeekNumbers, disabled, hasError, placeholder } = _props,
-              rest = objectWithoutProperties(_props, ['name', 'value', 'theme', 'disabledDays', 'showWeekNumbers', 'disabled', 'hasError', 'placeholder']);
+              { name, value, theme, disabledDays, showWeekNumbers, disabled, hasError, placeholder, onChange } = _props,
+              rest = objectWithoutProperties(_props, ['name', 'value', 'theme', 'disabledDays', 'showWeekNumbers', 'disabled', 'hasError', 'placeholder', 'onChange']);
         const dateFormat = theme.dateFormat;
         const formattedValue = value ? value.format(dateFormat) : '';
         // TODO: currently you cannot use most props you might need from the react-day-picker component
