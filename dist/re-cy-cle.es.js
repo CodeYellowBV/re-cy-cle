@@ -1761,13 +1761,14 @@ let MultipickDropdown = (_temp2$14 = _class$16 = class MultipickDropdown extends
             options,
             selectAllText,
             selectNoneText,
-            searchAppearsAfterCount
+            searchAppearsAfterCount,
+            noBatchSelect
         } = this.props;
         return React.createElement(
             Dropdown$1,
             null,
             options.length >= searchAppearsAfterCount ? this.renderSearch() : null,
-            React.createElement(
+            !noBatchSelect && React.createElement(
                 DropdownActionBar,
                 null,
                 React.createElement(
@@ -1800,7 +1801,8 @@ let MultipickDropdown = (_temp2$14 = _class$16 = class MultipickDropdown extends
     onSearchChange: PropTypes.func.isRequired,
     searchPlaceholder: PropTypes.string,
     selectAllText: PropTypes.string,
-    selectNoneText: PropTypes.string
+    selectNoneText: PropTypes.string,
+    noBatchSelect: PropTypes.bool
 }, _class$16.defaultProps = {
     searchValue: ''
 }, _temp2$14);
@@ -1884,7 +1886,8 @@ let MultiPick = (_temp2$13 = _class$15 = class MultiPick extends Component {
     selectNoneText: PropTypes.string,
     noneSelectedText: PropTypes.string,
     onChange: PropTypes.func.isRequired,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    noBatchSelect: PropTypes.bool
 }, _class$15.defaultProps = {
     searchAppearsAfterCount: 5
 }, _temp2$13);

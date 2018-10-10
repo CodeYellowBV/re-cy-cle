@@ -2,7 +2,7 @@
   "name": "re-cy-cle",
   "version": "0.7.31",
   "license": "ISC",
-  "author": "Kees Kluskens <kees@codeyellow.nl>",
+  "author": "Code Yellow BV <mail@codeyellow.nl>",
   "description": "React component library for Code Yellow",
   "module": "dist/re-cy-cle.es.js",
   "main": "dist/re-cy-cle.cjs.js",
