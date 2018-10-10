@@ -26,6 +26,7 @@ export default class MultipickDropdown extends Component {
         searchPlaceholder: PropTypes.string,
         selectAllText: PropTypes.string,
         selectNoneText: PropTypes.string,
+        noBatchSelect: PropTypes.bool,
     };
 
     static defaultProps = {
@@ -91,22 +92,25 @@ export default class MultipickDropdown extends Component {
             selectAllText,
             selectNoneText,
             searchAppearsAfterCount,
+            noBatchSelect,
         } = this.props;
         return (
             <Dropdown>
                 {options.length >= searchAppearsAfterCount
                     ? this.renderSearch()
                     : null}
-                <DropdownActionBar>
-                    <Button onClick={this.selectNone} tone="light">
-                        <IconCheckBoxOutlineBlank />
-                        {selectNoneText || t('form.multiPick.selectNoneButton')}
-                    </Button>
-                    <Button onClick={this.selectAll} tone="light">
-                        <IconCheckBox />
-                        {selectAllText || t('form.multiPick.selectAllButton')}
-                    </Button>
-                </DropdownActionBar>
+                {!noBatchSelect &&
+                    <DropdownActionBar>
+                        <Button onClick={this.selectNone} tone="light">
+                            <IconCheckBoxOutlineBlank/>
+                            {selectNoneText || t('form.multiPick.selectNoneButton')}
+                        </Button>
+                        <Button onClick={this.selectAll} tone="light">
+                            <IconCheckBox/>
+                            {selectAllText || t('form.multiPick.selectAllButton')}
+                        </Button>
+                    </DropdownActionBar>
+                }
                 <DropdownList>
                     {this.props.filteredOptions.map(this.renderItem)}
                 </DropdownList>

@@ -103,6 +103,14 @@ storiesOf('Data Entry / MultiPick', module)
             />
         );
     })
+    .add('without batch select', () => {
+        return (<MultiPick
+            options={SOME_DATA}
+            onChange={action('change')}
+            value={[]}
+            noBatchSelect
+        />);
+    })
     .add('with localized text', () => {
         return (
             <MultiPick

@@ -19,6 +19,7 @@ class MultiPick extends Component {
         noneSelectedText: PropTypes.string,
         onChange: PropTypes.func.isRequired,
         disabled: PropTypes.bool,
+        noBatchSelect: PropTypes.bool,
     };
 
     static defaultProps = {
