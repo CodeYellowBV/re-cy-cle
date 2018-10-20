@@ -110,7 +110,8 @@ export default class RadioButtons extends PureComponent {
         options: OptionsPropType,
         value: ValuePropType,
         vertical: PropTypes.bool,
-        title: PropTypes.string
+        title: PropTypes.string,
+        className: PropTypes.string,
     };
 
     state = {
@@ -160,13 +161,16 @@ export default class RadioButtons extends PureComponent {
     };
 
     render() {
+        const { vertical, title, className } = this.props;
+
         return (
             <StyledDiv
                 onFocus={this.handleFocus}
                 onBlur={this.handleBlur}
                 focus={this.state.hasFocus}
-                vertical={this.props.vertical}
-                title={this.props.title}
+                vertical={vertical}
+                title={title}
+                className={className}
             >
                 {this.props.options.map(this.renderItem)}
             </StyledDiv>
