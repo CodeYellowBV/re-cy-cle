@@ -814,6 +814,8 @@ let TextInput = (_temp2$5 = _class$7 = class TextInput extends React.PureCompone
 var _class$8;
 var _temp2$6;
 
+const PROPS_MASK = ['prefix', 'suffix', 'includeThousandsSeparator', 'thousandsSeparatorSymbol', 'allowDecimal', 'allowNegative', 'decimalSymbol', 'decimalLimit'];
+
 const MyInput = StyledInput$3.withComponent((_ref) => {
     let { hasError } = _ref,
         props = objectWithoutProperties(_ref, ['hasError']);
@@ -853,13 +855,13 @@ let NumberInput = (_temp2$6 = _class$8 = class NumberInput extends React.PureCom
     }
 
     getMask(props) {
-        return createNumberMask(lodash.pick(props, 'prefix', 'suffix', 'includeThousandsSeparator', 'thousandsSeparatorSymbol', 'allowDecimal', 'allowNegative', 'decimalSymbol', 'decimalLimit'));
+        return createNumberMask(lodash.pick(props, PROPS_MASK));
     }
 
     render() {
         const value = this.props.value !== null ? this.props.value : '';
 
-        return React__default.createElement(MyInput, {
+        return React__default.createElement(MyInput, Object.assign({}, lodash.omit(this.props, PROPS_MASK), {
             name: this.props.name,
             id: this.props.id,
             disabled: this.props.disabled,
@@ -874,7 +876,7 @@ let NumberInput = (_temp2$6 = _class$8 = class NumberInput extends React.PureCom
             guide: false,
             mask: this.getMask(this.props),
             className: this.props.className
-        });
+        }));
     }
 }, _class$8.propTypes = {
     onChange: PropTypes.func,

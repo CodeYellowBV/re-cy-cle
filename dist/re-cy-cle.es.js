@@ -805,6 +805,8 @@ let TextInput = (_temp2$5 = _class$7 = class TextInput extends PureComponent {
 var _class$8;
 var _temp2$6;
 
+const PROPS_MASK = ['prefix', 'suffix', 'includeThousandsSeparator', 'thousandsSeparatorSymbol', 'allowDecimal', 'allowNegative', 'decimalSymbol', 'decimalLimit'];
+
 const MyInput = StyledInput$3.withComponent((_ref) => {
     let { hasError } = _ref,
         props = objectWithoutProperties(_ref, ['hasError']);
@@ -844,13 +846,13 @@ let NumberInput = (_temp2$6 = _class$8 = class NumberInput extends PureComponent
     }
 
     getMask(props) {
-        return createNumberMask(pick(props, 'prefix', 'suffix', 'includeThousandsSeparator', 'thousandsSeparatorSymbol', 'allowDecimal', 'allowNegative', 'decimalSymbol', 'decimalLimit'));
+        return createNumberMask(pick(props, PROPS_MASK));
     }
 
     render() {
         const value = this.props.value !== null ? this.props.value : '';
 
-        return React.createElement(MyInput, {
+        return React.createElement(MyInput, Object.assign({}, omit(this.props, PROPS_MASK), {
             name: this.props.name,
             id: this.props.id,
             disabled: this.props.disabled,
@@ -865,7 +867,7 @@ let NumberInput = (_temp2$6 = _class$8 = class NumberInput extends PureComponent
             guide: false,
             mask: this.getMask(this.props),
             className: this.props.className
-        });
+        }));
     }
 }, _class$8.propTypes = {
     onChange: PropTypes.func,
