@@ -587,14 +587,17 @@ let RadioButtons = (_temp2$2 = _class$4 = class RadioButtons extends React.PureC
     }
 
     render() {
+        const { vertical, title, className } = this.props;
+
         return React__default.createElement(
             StyledDiv,
             {
                 onFocus: this.handleFocus,
                 onBlur: this.handleBlur,
                 focus: this.state.hasFocus,
-                vertical: this.props.vertical,
-                title: this.props.title
+                vertical: vertical,
+                title: title,
+                className: className
             },
             this.props.options.map(this.renderItem)
         );
@@ -606,7 +609,8 @@ let RadioButtons = (_temp2$2 = _class$4 = class RadioButtons extends React.PureC
     options: OptionsPropType,
     value: ValuePropType,
     vertical: PropTypes.bool,
-    title: PropTypes.string
+    title: PropTypes.string,
+    className: PropTypes.string
 }, _temp2$2);
 
 var _class$5;
