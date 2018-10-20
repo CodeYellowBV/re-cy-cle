@@ -2,8 +2,10 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { StyledInput } from './TextInput';
 import MaskedInput from 'react-text-mask';
-import { pick } from 'lodash';
+import { pick, omit } from 'lodash';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
+
+const PROPS_MASK = ['prefix', 'suffix', 'includeThousandsSeparator', 'thousandsSeparatorSymbol', 'allowDecimal', 'allowNegative', 'decimalSymbol', 'decimalLimit'];
 
 const MyInput = StyledInput.withComponent(({ hasError, ...props }) => (
     <MaskedInput {...props} />
@@ -78,19 +80,7 @@ export default class NumberInput extends PureComponent {
     };
 
     getMask(props) {
-        return createNumberMask(
-            pick(
-                props,
-                'prefix',
-                'suffix',
-                'includeThousandsSeparator',
-                'thousandsSeparatorSymbol',
-                'allowDecimal',
-                'allowNegative',
-                'decimalSymbol',
-                'decimalLimit'
-            )
-        );
+        return createNumberMask(pick(props, PROPS_MASK));
     }
 
     render() {
@@ -98,6 +88,7 @@ export default class NumberInput extends PureComponent {
 
         return (
             <MyInput
+                {...omit(this.props, PROPS_MASK)}
                 name={this.props.name}
                 id={this.props.id}
                 disabled={this.props.disabled}
