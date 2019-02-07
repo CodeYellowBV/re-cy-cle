@@ -35,9 +35,9 @@
     "react-input-autosize": "^2.0.1",
     "react-onclickoutside": "^6.6.0",
     "react-styled-flexboxgrid": "^2.0.3",
-    "react-text-mask": "^5.0.2",
+    "react-text-mask": "5.4.3",
     "react-textarea-autosize": "^5.1.0",
-    "text-mask-addons": "^3.7.0",
+    "text-mask-addons": "3.8.0",
     "typeface-roboto": "^0.0.43"
   },
   "engines": {

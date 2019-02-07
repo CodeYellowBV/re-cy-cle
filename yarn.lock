@@ -5896,9 +5896,9 @@ react-test-renderer@^16.0.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-text-mask@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/react-text-mask/-/react-text-mask-5.0.2.tgz#09bce3f94ac244c11932082e42328cb455b73aa6"
+react-text-mask@5.4.3:
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/react-text-mask/-/react-text-mask-5.4.3.tgz#991efb4299e30c2e6c2c46d13f617169463e0d2d"
   dependencies:
     prop-types "^15.5.6"
 
@@ -6759,9 +6759,9 @@ test-exclude@^4.1.1:
     read-pkg-up "^1.0.1"
     require-main-filename "^1.0.1"
 
-text-mask-addons@^3.7.0:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/text-mask-addons/-/text-mask-addons-3.7.1.tgz#8304f5c952533ab76533053e4f90cb4fdaa3995b"
+text-mask-addons@3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/text-mask-addons/-/text-mask-addons-3.8.0.tgz#17b61ef665a4f36811f2ea1f01a223b4be61ab26"
 
 text-table@~0.2.0:
   version "0.2.0"
