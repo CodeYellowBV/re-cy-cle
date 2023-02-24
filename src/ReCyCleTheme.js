@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider, injectGlobal } from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import RobotoLight from 'typeface-roboto/files/roboto-latin-300.woff2';
 import RobotoRegular from 'typeface-roboto/files/roboto-latin-400.woff2';
 import RobotoMedium from 'typeface-roboto/files/roboto-latin-500.woff2';
@@ -8,7 +8,7 @@ import RobotoBold from 'typeface-roboto/files/roboto-latin-700.woff2';
 import { defaultConfig, themeOverrides } from './config';
 import { mapValues } from 'lodash';
 
-const injectGlobalStyles = theme => injectGlobal`
+const injectGlobalStyles = theme => createGlobalStyle`
     @font-face {
         font-family: 'Roboto';
         src: url('${RobotoLight}');

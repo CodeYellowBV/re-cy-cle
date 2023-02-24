@@ -1,6 +1,6 @@
 import React, { Children, Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import styled, { ThemeProvider, injectGlobal, keyframes, withTheme } from 'styled-components';
+import styled, { ThemeProvider, createGlobalStyle, keyframes, withTheme } from 'styled-components';
 import RobotoLight from 'typeface-roboto/files/roboto-latin-300.woff2';
 import RobotoRegular from 'typeface-roboto/files/roboto-latin-400.woff2';
 import RobotoMedium from 'typeface-roboto/files/roboto-latin-500.woff2';
@@ -64,7 +64,7 @@ function readableColor(color) {
 var _class;
 var _temp2;
 
-const injectGlobalStyles = theme => injectGlobal`
+const injectGlobalStyles = theme => createGlobalStyle`
     @font-face {
         font-family: 'Roboto';
         src: url('${RobotoLight}');
