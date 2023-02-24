@@ -73,7 +73,7 @@ function readableColor(color) {
 var _class;
 var _temp2;
 
-const injectGlobalStyles = theme => styled.injectGlobal`
+const injectGlobalStyles = theme => styled.createGlobalStyle`
     @font-face {
         font-family: 'Roboto';
         src: url('${RobotoLight}');

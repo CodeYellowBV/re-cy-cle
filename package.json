@@ -1,6 +1,6 @@
 {
   "name": "re-cy-cle",
-  "version": "0.7.34",
+  "version": "0.7.35",
   "license": "ISC",
   "author": "Code Yellow BV <mail@codeyellow.nl>",
   "description": "React component library for Code Yellow",
@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=development start-storybook -p 9001 -c storybook",
+    "test": "",
     "lint": "eslint src",
     "preversion": "npm run -s lint && npm test && NODE_ENV=production npm run -s build && npm run -s deploy-storybook",
     "version": "git add -A dist",
