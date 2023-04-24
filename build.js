@@ -20,8 +20,8 @@ const external = [
     'lodash',
     'downshift',
     'i18next',
+    'react-day-picker',
     'react-day-picker/DayPickerInput',
-    'react-day-picker/moment',
     'react-onclickoutside',
     'react-textarea-autosize',
     // TODO: use `external` as function and Regex this shit
