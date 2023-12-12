@@ -2397,7 +2397,7 @@ Sidebar.propTypes = {
 
 var Toolbar = styled.section.withConfig({
     displayName: 'Toolbar'
-})(['height:40px;background-color:', ';display:flex;align-items:center;padding:0 25px 0 25px;'], props => tint(0.15, props.theme.primaryColor));
+})(['height:40px;display:flex;align-items:center;padding:0 25px 0 25px;'], props => tint(0.15, props.theme.primaryColor));
 
 const sweep = keyframes(['to{transform:rotate(360deg);}']);
 
